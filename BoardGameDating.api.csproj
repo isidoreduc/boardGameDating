@@ -13,7 +13,6 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" version="2.1.0-preview1-final"/>
-    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" version="2.1.0"/>
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" version="2.1.0"/>
+    <!-- <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" version="2.1.0"/> -->
   </ItemGroup>
 </Project>

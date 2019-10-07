@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BoardGameDating.api.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BoardGameDating.api.Controllers
 {
@@ -10,19 +12,23 @@ namespace BoardGameDating.api.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly DataContext _dbContext;
+
+        public ValuesController(DataContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        public async Task<IActionResult> GetValues() => 
+            Ok(await _dbContext.Values.ToListAsync());
+            
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
-        {
-            return "value";
-        }
+        public async Task<IActionResult> GetValue(int id) =>
+            Ok(await _dbContext.Values.FirstOrDefaultAsync(item => item.Id == id));
+        
 
         // POST api/values
         [HttpPost]
