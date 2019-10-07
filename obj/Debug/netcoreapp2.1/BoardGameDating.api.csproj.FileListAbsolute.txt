@@ -1,0 +1,14 @@
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/bin/Debug/netcoreapp2.1/BoardGameDating.api.deps.json
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/bin/Debug/netcoreapp2.1/BoardGameDating.api.runtimeconfig.json
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/bin/Debug/netcoreapp2.1/BoardGameDating.api.runtimeconfig.dev.json
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/bin/Debug/netcoreapp2.1/BoardGameDating.api.dll
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/bin/Debug/netcoreapp2.1/BoardGameDating.api.pdb
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.csprojAssemblyReference.cache
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.csproj.CoreCompileInputs.cache
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.RazorAssemblyInfo.cache
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.RazorAssemblyInfo.cs
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.AssemblyInfoInputs.cache
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.AssemblyInfo.cs
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.RazorTargetAssemblyInfo.cache
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.dll
+/Users/raspi/DEVELOPMENT/Projects Core_Angular/BoardGameDating/BoardGameDating.api/obj/Debug/netcoreapp2.1/BoardGameDating.api.pdb
