@@ -29,6 +29,9 @@ namespace BoardGameDating.api
         {
             services.AddDbContext<DataContext>(cfg => cfg.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
+            // scoped = for each rquest we have a new instance; singleton = one instance, has the lifetime of the application (problems when we need concurrency; transient = for each dependency injection need, it creates an instance)
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
