@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using BoardGameDating.api.Data;
 using BoardGameDating.api.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -42,6 +43,7 @@ namespace BoardGameDating.api
                 opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
+            services.AddAutoMapper(typeof(Startup));
             // scoped = for each rquest we have a new instance; singleton = one instance, has the lifetime of the application (problems when we need concurrency; transient = for each dependency injection need, it creates an instance)
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
