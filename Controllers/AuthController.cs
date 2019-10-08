@@ -24,7 +24,8 @@ namespace BoardGameDating.api.Controllers {
         // FromBody - use the info from the request body (submitted by user)
         [HttpPost ("register")]
         public async Task<IActionResult> Register ([FromBody] UserForRegisterDTO userForRegisterDTO) {
-            userForRegisterDTO.Name = userForRegisterDTO.Name.ToLower ();
+            if(!string.IsNullOrEmpty(userForRegisterDTO.Name))
+                userForRegisterDTO.Name = userForRegisterDTO.Name.ToLower ();
             // passing the 'existing user' error in the ModelState towards a BadRequest
             if (await _authRepo.UserExists (userForRegisterDTO.Name))
                 ModelState.AddModelError("Username", "Username is already taken.");
@@ -45,8 +46,8 @@ namespace BoardGameDating.api.Controllers {
         public async Task<IActionResult> Login([FromBody]UserForLoginDTO userForLoginDto)
         {
             // throw new Exception("No to the no");
-
-            var userFromRepo = await _authRepo.Login(userForLoginDto.Name.ToLower(), userForLoginDto.Password);
+            
+            var userFromRepo = await _authRepo.Login(userForLoginDto.Name.ToLower(),                        userForLoginDto.Password);
 
             if (userFromRepo == null)
                 return Unauthorized();
