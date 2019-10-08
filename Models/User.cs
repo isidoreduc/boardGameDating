@@ -26,9 +26,5 @@ namespace BoardGameDating.api.Models
         {
             Photos = new Collection<Photo>();
         }
-
-
-
-
     }
 }

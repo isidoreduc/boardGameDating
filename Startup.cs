@@ -36,11 +36,15 @@ namespace BoardGameDating.api
         {
             var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
 
+            services.AddTransient<Seed>();
             services.AddDbContext<DataContext>(cfg => cfg.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(opt => {
+                opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
             services.AddCors();
             // scoped = for each rquest we have a new instance; singleton = one instance, has the lifetime of the application (problems when we need concurrency; transient = for each dependency injection need, it creates an instance)
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options => {
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -54,7 +58,7 @@ namespace BoardGameDating.api
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             // global exception handling in production env
             if (env.IsDevelopment())
@@ -77,7 +81,7 @@ namespace BoardGameDating.api
                     });
                 });
             }
-            
+            seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseAuthentication();
             app.UseMvc();
