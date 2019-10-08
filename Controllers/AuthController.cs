@@ -44,6 +44,8 @@ namespace BoardGameDating.api.Controllers {
 [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody]UserForLoginDTO userForLoginDto)
         {
+            // throw new Exception("No to the no");
+
             var userFromRepo = await _authRepo.Login(userForLoginDto.Name.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
