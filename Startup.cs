@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BoardGameDating.api.Data;
 using BoardGameDating.api.Helpers;
+using Microsoft.AspNet.OData.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -57,6 +58,7 @@ namespace BoardGameDating.api
                         ValidateAudience = false
                     };
                 });
+            services.AddOData();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,7 +88,11 @@ namespace BoardGameDating.api
             seeder.SeedUsers();
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
             app.UseAuthentication();
-            app.UseMvc();
+            app.UseMvc(routeBuilder => 
+            {routeBuilder.EnableDependencyInjection();
+            routeBuilder.Expand().Select().Count().OrderBy().Filter();
+            }
+            );
         }
     }
 }

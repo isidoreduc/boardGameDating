@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using BoardGameDating.api.Data;
 using BoardGameDating.api.Models.DTOs;
+using Microsoft.AspNet.OData;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +25,12 @@ namespace BoardGameDating.api.Controllers
         }
 
         [HttpGet]
+        [EnableQuery]
         public async Task<IActionResult> GetUsers() => 
             Ok(_mapper.Map<IEnumerable<UsersForGetAllDto>>(await _repo.GetUsers()));
         
         [HttpGet("{id}")]
+        [EnableQuery]
         public async Task<IActionResult> GetUser(int id) => 
             Ok( _mapper.Map<UserForGetOneDto>(await _repo.GetUser(id)));
 
